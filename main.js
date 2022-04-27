@@ -29,8 +29,8 @@ export const mostrarProductos = (productos) => {
       Toastify({
         text: `${producto.nombre} se agrego al carrito`,
         duration: 2000,
-        gravity: "top",
-        position: "center",
+        gravity: "bottom",
+        position: "right",
         stopOnFocus: true,
         style: {
           background: "#000",
