@@ -2,6 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap');
 // font-family: 'Montserrat', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+//font-family: 'Lora', serif;
 
 
 
@@ -14,7 +16,6 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
-
 header {
   height: 7rem;
   width: 100%;
@@ -22,16 +23,16 @@ header {
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
-
   h1 {
     height: auto;
     margin: 0;
     padding-left: 2rem;
     font-size: 3rem;
+    font-family: $fuente-titulo;
+    font-size: 5rem;
   }
-
   #cesta-carrito {
-    height: 30px;
+    height: 3.3rem;
     width: auto;
     margin-right: 2rem;
     background-color: transparent;
@@ -39,12 +40,15 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 28px;
 
+    .cesta-carrito-boton{
+      color: #3f3d3d;
+      font-size: 28px;
+    }
     #contador-carrito {
-      background-color: #000;
-      height: 18px;
-      width: 20px;
+      background-color: #3f3d3d;
+      height: 20px;
+      width: 22px;
       font-size: small;
       color: #fff;
       border-radius: 50%;
@@ -53,17 +57,16 @@ header {
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-left: -2px;
+      margin-top: -30px;
     }
   }
 }
-
 .contenedor-main {
   display: flex;
   justify-content: center;
   width: 100vw;
   height: max-content;
-
-
   #producto-contenedor {
     height: auto;
     max-width: 70rem;
@@ -72,41 +75,38 @@ header {
     justify-content: space-around;
     flex-wrap: wrap;
     align-content: flex-start;
-
-
+    margin-top: 2rem;
     .card {
       width: 20rem;
       height: auto;
-      border: none;
+      border-radius: 10px;
       .card-image {
         height: 100%;
         width: 100%;
         display: flex;
         flex-direction: column;
-        img{
+        img {
           height: 25rem;
           width: auto;
           object-fit: contain;
-
         }
         .contenedor-botonYtituloProducto {
-          display:flex;
+          display: flex;
           flex-direction: row;
           justify-content: space-around;
-          .boton-agregar{
+          .boton-agregar {
             background-color: $color-principal;
-            & :hover{
+            & :hover {
               background-color: rgb(167, 150, 103);
             }
           }
-
           .nombre-producto {
             display: flex;
             justify-content: center;
             align-items: center;
             text-transform: uppercase;
             font-family: 'Montserrat', sans-serif;
-            font-weight: bold ;
+            font-weight: bold;
             width: 80%;
             text-align: center;
           }
@@ -127,15 +127,12 @@ header {
   align-items: flex-start;
   opacity: 0;
   visibility: hidden;
-  transition: all .5s;
-
 }
-
 .modal-active {
   opacity: 1;
   visibility: visible;
   z-index: 5;
-
+  transition: all .5s;
   .modal-carrito {
     height: 100vh;
     width: 30rem;
@@ -143,20 +140,17 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     .contenedor-tituloYbotonSalir {
       display: flex;
       justify-content: space-between;
-
       .modal-carrito-titulo {
         color: #545454;
         display: inline;
         font-family: $fuente-principal;
         font-size: 20px;
         text-transform: uppercase;
-        font-weight:bold;
+        font-weight: bold;
       }
-
       #btn-cerrar-carrito {
         color: #000;
         background: none;
@@ -164,42 +158,57 @@ header {
         font-size: 20px;
       }
     }
-    #carrito-contenedor{
+    #carrito-contenedor {
       height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      overflow: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
       .productoEnCarrito {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
-        height: 5rem;
+        align-items:center;
+        height: max-content;
         width: 95%;
-        border: 1px solid black;
-        margin: 2px;
-        .contenedor__nombreYPrecio{
-          height: 5rem;
-          width: 35%;
-          background-color: rgb(129, 129, 234);
-          .producto__nombre{
-            font-family: $fuente-principal;
+        border-bottom: 3px solid $color-principal;
+        margin-top: 2rem;
+        .contenedor__img-mini-carrito{
+          height: max-content;
+          width: max-content;
+          .img-mini-carrito{
+            height: 80px;
+            width: 60px;
+            object-fit: cover;
           }
         }
-  
+        .contenedor__nombreYPrecio {
+          height: max-content;
+          width: 35%;
+          .producto__nombre {
+            font-family: $fuente-principal;
+            font-size: large;
+          }
+          .producto__precio{
+            font-size: large;
+          }
+        }
         .boton-eliminar {
           height: 25px;
           width: 25px;
           background: none;
           border: none;
-  
           & :hover {
             color: #777;
           }
         }
       }
     }
-    .precioProducto{
+
+    .precioTotalProducto {
       width: 100%;
       height: 3rem;
       background-color: #3f3d3d;
@@ -208,7 +217,7 @@ header {
       align-items: center;
       color: #fff;
       border: 1px solid #545454;
-      
+
     }
   }
 }

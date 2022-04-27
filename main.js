@@ -8,18 +8,19 @@ export const mostrarProductos = (productos) => {
   productos.forEach(producto => {
     const div = document.createElement('div');
     div.classList.add('card');
-    div.innerHTML +=  ` <div class="card-image">
-                          <img src=${producto.img}>
-                          <div class="contenedor-botonYtituloProducto">
-                            <span class="nombre-producto">${producto.nombre}</span>
-                            <a class="btn-floating waves-effect waves-light boton-agregar" id=boton${producto.id}><i class="boton-agregar material-icons">add_shopping_cart</i></a>
-                          </div>
-                        </div>
-                        <div class="card-content">
-                          <p>${producto.desc}</p>
-                          <p>$${producto.precio}</p>
-                        </div>
-                      `;
+    div.innerHTML +=
+    ` <div class="card-image">
+        <img src=${producto.img}>
+        <div class="contenedor-botonYtituloProducto">
+          <span class="nombre-producto">${producto.nombre}</span>
+          <a class="btn-floating waves-effect waves-light boton-agregar" id=boton${producto.id}><i class="boton-agregar material-icons">add_shopping_cart</i></a>
+        </div>
+      </div>
+      <div class="card-content">
+        <p>${producto.desc}</p>
+        <p>$${producto.precio}</p>
+      </div>
+    `;
     contenedorProductos.appendChild(div);
 
     const boton = document.getElementById(`boton${producto.id}`);

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
 html {
   scroll-behavior: smooth;
 }
@@ -23,10 +24,12 @@ header h1 {
   margin: 0;
   padding-left: 2rem;
   font-size: 3rem;
+  font-family: "Lora", serif;
+  font-size: 5rem;
 }
 
 header #cesta-carrito {
-  height: 30px;
+  height: 3.3rem;
   width: auto;
   margin-right: 2rem;
   background-color: transparent;
@@ -34,13 +37,17 @@ header #cesta-carrito {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+header #cesta-carrito .cesta-carrito-boton {
+  color: #3f3d3d;
   font-size: 28px;
 }
 
 header #cesta-carrito #contador-carrito {
-  background-color: #000;
-  height: 18px;
-  width: 20px;
+  background-color: #3f3d3d;
+  height: 20px;
+  width: 22px;
   font-size: small;
   color: #fff;
   border-radius: 50%;
@@ -49,6 +56,8 @@ header #cesta-carrito #contador-carrito {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: -2px;
+  margin-top: -30px;
 }
 
 .contenedor-main {
@@ -66,12 +75,13 @@ header #cesta-carrito #contador-carrito {
   justify-content: space-around;
   flex-wrap: wrap;
   align-content: flex-start;
+  margin-top: 2rem;
 }
 
 .contenedor-main #producto-contenedor .card {
   width: 20rem;
   height: auto;
-  border: none;
+  border-radius: 10px;
 }
 
 .contenedor-main #producto-contenedor .card .card-image {
@@ -123,13 +133,13 @@ header #cesta-carrito #contador-carrito {
   align-items: flex-start;
   opacity: 0;
   visibility: hidden;
-  transition: all .5s;
 }
 
 .modal-active {
   opacity: 1;
   visibility: visible;
   z-index: 5;
+  transition: all .5s;
 }
 
 .modal-active .modal-carrito {
@@ -167,6 +177,11 @@ header #cesta-carrito #contador-carrito {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: scroll;
+}
+
+.modal-active .modal-carrito #carrito-contenedor::-webkit-scrollbar {
+  display: none;
 }
 
 .modal-active .modal-carrito #carrito-contenedor .productoEnCarrito {
@@ -174,20 +189,35 @@ header #cesta-carrito #contador-carrito {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 5rem;
+  height: max-content;
   width: 95%;
-  border: 1px solid black;
-  margin: 2px;
+  border-bottom: 3px solid #cdb77c;
+  margin-top: 2rem;
+}
+
+.modal-active .modal-carrito #carrito-contenedor .productoEnCarrito .contenedor__img-mini-carrito {
+  height: max-content;
+  width: max-content;
+}
+
+.modal-active .modal-carrito #carrito-contenedor .productoEnCarrito .contenedor__img-mini-carrito .img-mini-carrito {
+  height: 80px;
+  width: 60px;
+  object-fit: cover;
 }
 
 .modal-active .modal-carrito #carrito-contenedor .productoEnCarrito .contenedor__nombreYPrecio {
-  height: 5rem;
+  height: max-content;
   width: 35%;
-  background-color: #8181ea;
 }
 
 .modal-active .modal-carrito #carrito-contenedor .productoEnCarrito .contenedor__nombreYPrecio .producto__nombre {
   font-family: "Montserrat", sans-serif;
+  font-size: large;
+}
+
+.modal-active .modal-carrito #carrito-contenedor .productoEnCarrito .contenedor__nombreYPrecio .producto__precio {
+  font-size: large;
 }
 
 .modal-active .modal-carrito #carrito-contenedor .productoEnCarrito .boton-eliminar {
@@ -201,7 +231,7 @@ header #cesta-carrito #contador-carrito {
   color: #777;
 }
 
-.modal-active .modal-carrito .precioProducto {
+.modal-active .modal-carrito .precioTotalProducto {
   width: 100%;
   height: 3rem;
   background-color: #3f3d3d;
