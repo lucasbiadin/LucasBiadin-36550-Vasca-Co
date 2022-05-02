@@ -3,17 +3,17 @@ import { mostrarProductos } from "./main.js";
 import { eliminarProductoCarrito } from "./carritoIndex.js";
 import { productos } from "./stock.js";
 
-const contenedorCarrito = document.getElementById('carrito-contenedor');
+const contenedorCarrito = document.getElementById("carrito-contenedor");
 let carritoStorage = [];
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
 	mostrarProductos(productos);
 
 	if (localStorage.getItem("carrito")) {
-		carritoStorage = JSON.parse(localStorage.getItem('carrito'));
+		carritoStorage = JSON.parse(localStorage.getItem("carrito"));
 		carritoStorage.map((producto) => {
-			let div = document.createElement('div');
-			div.classList.add('productoEnCarrito');
+			let div = document.createElement("div");
+			div.classList.add("productoEnCarrito");
 			div.innerHTML =
 			` <div class="contenedor__img-mini-carrito">
 					<img class="img-mini-carrito" src=${producto.img}>

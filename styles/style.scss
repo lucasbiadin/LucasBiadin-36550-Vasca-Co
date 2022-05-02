@@ -31,6 +31,34 @@ header {
     font-family: $fuente-titulo;
     font-size: 5rem;
   }
+  .contenedor-menu{
+    height: 5rem;
+    width: 50rem;
+    .menu-ul{
+      height: 100%;
+      width: 100%;
+      margin-bottom: 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .menu-ul-li{
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-weight: 45 0;
+        font-size: 13px;
+        cursor: pointer;
+        &:hover{
+          color: rgb(141, 141, 141);
+          transition: all 0.1s;
+        }
+      }
+
+    }
+
+  }
   #cesta-carrito {
     height: 3.3rem;
     width: auto;

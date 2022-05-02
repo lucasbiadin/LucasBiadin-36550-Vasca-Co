@@ -6,8 +6,8 @@ export const mostrarProductos = (productos) => {
   const contenedorProductos = document.getElementById("producto-contenedor");
 
   productos.forEach(producto => {
-    const div = document.createElement('div');
-    div.classList.add('card');
+    const div = document.createElement("div");
+    div.classList.add("card");
     div.innerHTML +=
     ` <div class="card-image">
         <img src=${producto.img}>
@@ -24,7 +24,7 @@ export const mostrarProductos = (productos) => {
     contenedorProductos.appendChild(div);
 
     const boton = document.getElementById(`boton${producto.id}`);
-    boton.addEventListener('click', () => {
+    boton.addEventListener("click", () => {
       carritoIndex(producto.id);
       Toastify({
         text: `${producto.nombre} se agrego al carrito`,

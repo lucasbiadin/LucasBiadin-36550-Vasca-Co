@@ -1,7 +1,7 @@
 import { productos } from "./stock.js";
 import { actualizarCarrito } from "./actualizarCarrito.js";
 
-const contenedorCarrito = document.getElementById('carrito-contenedor');
+const contenedorCarrito = document.getElementById("carrito-contenedor");
 let carritoDeCompras = [];
 
 export const carritoIndex = (productoId) => {
@@ -19,11 +19,11 @@ export const eliminarProductoCarrito = (productoId) => {
     carritoDeCompras = JSON.parse(localStorage.getItem("carrito"));
   }
   let botonEliminar = document.getElementById(`eliminar${productoId}`);
-  botonEliminar.addEventListener('click', () => {
+  botonEliminar.addEventListener("click", () => {
 
     swal({
-      icon: 'warning',
-      title:'¿Esta seguro que quiere eliminar este producto?',
+      icon: "warning",
+      title:"¿Esta seguro que quiere eliminar este producto?",
       buttons:true,
       dangerMode: true
     }).then((result)=>{
@@ -50,8 +50,8 @@ const renderProductosCarrito = (productoId) => {
   let producto = productos.find(producto => producto.id == productoId);
   carritoDeCompras.push(producto);
   producto.cantidad = 1;
-  let div = document.createElement('div');
-  div.classList.add('productoEnCarrito');
+  let div = document.createElement("div");
+  div.classList.add("productoEnCarrito");
   div.innerHTML =
     ` <div class="contenedor__img-mini-carrito">
         <img class="img-mini-carrito" src=${producto.img}>

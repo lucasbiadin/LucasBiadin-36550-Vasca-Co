@@ -28,6 +28,36 @@ header h1 {
   font-size: 5rem;
 }
 
+header .contenedor-menu {
+  height: 5rem;
+  width: 50rem;
+}
+
+header .contenedor-menu .menu-ul {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+header .contenedor-menu .menu-ul .menu-ul-li {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 45 0;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+header .contenedor-menu .menu-ul .menu-ul-li:hover {
+  color: #8d8d8d;
+  transition: all 0.1s;
+}
+
 header #cesta-carrito {
   height: 3.3rem;
   width: auto;
