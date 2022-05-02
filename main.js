@@ -1,15 +1,17 @@
 import { carritoIndex } from "./carritoIndex.js";
+import { getData } from "./getdata.js";
 
 
 
-export const mostrarProductos = (productos) => {
+export const mostrarProductos = async () => {
   const contenedorProductos = document.getElementById("producto-contenedor");
+  const productos = await getData();
 
   productos.forEach(producto => {
     const div = document.createElement("div");
     div.classList.add("card");
     div.innerHTML +=
-    ` <div class="card-image">
+      ` <div class="card-image">
         <img src=${producto.img}>
         <div class="contenedor-botonYtituloProducto">
           <span class="nombre-producto">${producto.nombre}</span>
@@ -34,7 +36,7 @@ export const mostrarProductos = (productos) => {
         stopOnFocus: true,
         style: {
           background: "#000",
-          color:"#fff"
+          color: "#fff"
         }
       }).showToast();
     })
