@@ -23,7 +23,7 @@ export const eliminarProductoCarrito = (productoId) => {
 
     swal({
       icon: "warning",
-      text:"¿Esta seguro que quiere eliminar este producto?",
+      title:"¿Esta seguro que quiere eliminar este producto?",
       buttons:true,
       dangerMode: true
     }).then((result)=>{
