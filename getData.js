@@ -1,6 +1,7 @@
 /**
  * Obtiene los datos del archivo stock.json y los devuelve.
  *
+ * @return Los datos están siendo devueltos.
  */
 const getData = async () => {
 	try {
