@@ -3,7 +3,11 @@ import { getData } from "./getdata.js";
 
 
 
+/**
+ * Crea un div para cada producto y agrega un detector de eventos al botón de cada div.
+ */
 export const mostrarProductos = async () => {
+ /* Obtener los datos de la API y almacenarlos en la variable productos. */
   const contenedorProductos = document.getElementById("producto-contenedor");
   const productos = await getData();
 

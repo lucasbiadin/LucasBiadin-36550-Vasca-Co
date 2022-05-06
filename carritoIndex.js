@@ -23,14 +23,14 @@ export const eliminarProductoCarrito = (productoId) => {
 
     swal({
       icon: "warning",
-      title:"¿Esta seguro que quiere eliminar este producto?",
+      text:"¿Esta seguro que quiere eliminar este producto?",
       buttons:true,
       dangerMode: true
     }).then((result)=>{
       if(result){
         botonEliminar.parentElement.remove();
         carritoDeCompras = carritoDeCompras.filter(el => el.id != productoId);
-        actualizarCarrito(carritoDeCompras)
+        actualizarCarrito(carritoDeCompras);
       }
     })
   })

@@ -2,7 +2,7 @@ import { actualizarCarrito } from "./actualizarCarrito.js";
 import { mostrarProductos } from "./main.js";
 import { eliminarProductoCarrito } from "./carritoIndex.js";
 // import { productos } from "./stock.js";
-
+ 
 const contenedorCarrito = document.getElementById("carrito-contenedor");
 let carritoStorage = [];
 
@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			contenedorCarrito.appendChild(div);
 
 			actualizarCarrito(carritoStorage);
-			console.log(producto.id);
 			eliminarProductoCarrito(producto.id)
 		})
 	}

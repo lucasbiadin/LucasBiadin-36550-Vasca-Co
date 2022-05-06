@@ -1,3 +1,7 @@
+/**
+ * Obtiene los datos del archivo stock.json y los devuelve.
+ *
+ */
 const getData = async () => {
 	try {
 		const response = await fetch("./stock.json");
