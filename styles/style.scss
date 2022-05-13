@@ -10,6 +10,9 @@
 html {
   scroll-behavior: smooth;
 }
+body{
+  width: 100%;
+}
 
 * {
   margin: 0;
@@ -91,7 +94,7 @@ header {
 .contenedor-main {
   display: flex;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: max-content;
   #producto-contenedor {
     height: auto;
@@ -160,7 +163,7 @@ header {
   z-index: 5;
   transition: all .5s;
   .modal-carrito {
-    height: 100vh;
+    height: 100%;
     width: 30rem;
     background-color: #fff;
     display: flex;
@@ -171,7 +174,8 @@ header {
       justify-content: space-between;
       .modal-carrito-titulo {
         color: #545454;
-        display: inline;
+        width: 90%;
+        text-align: center;
         font-family: $fuente-principal;
         font-size: 20px;
         text-transform: uppercase;
@@ -179,6 +183,7 @@ header {
       }
       #btn-cerrar-carrito {
         color: #000;
+        width: 10%;
         background: none;
         border: none;
         font-size: 20px;
@@ -236,12 +241,40 @@ header {
     .precioTotalProducto {
       width: 100%;
       height: 4rem;
+      padding: 0;
       background-color: #3f3d3d;
       display: flex;
       justify-content: center;
       align-items: center;
       color: #fff;
       border: 1px solid #545454;
+      margin: 0;
+      font-size: large;
+    }
+    .modal-footer{
+      width: 100%;
+      height: auto;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      gap: 2px;
+      .botones__modal-footer{
+        background: none;
+        margin: 0;
+        width: 100%;
+        height: 3rem;
+        border: none;
+        background-color: $color-principal;
+        // outline: #000 1px solid;
+        font-size: medium;
+        text-transform: uppercase;
+      }
+      & :hover{
+        background:linear-gradient(to bottom, #cdb77c, #f7e6b7);
+        transition: all 0.5s;
+      }
     }
   }
 }

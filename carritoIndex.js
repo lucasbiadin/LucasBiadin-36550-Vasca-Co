@@ -10,9 +10,11 @@ export const carritoIndex = (productoId) => {
   }
   let productoRepetido = carritoDeCompras.find(producto => producto.id == productoId);
   contarProductosRepetidos(productoRepetido, productoId);
-  eliminarProductoCarrito(productoId)
-}
+  eliminarProductoCarrito(productoId);
+  vaciarCarrito();
+  pagar();
 
+}
 
 export const eliminarProductoCarrito = (productoId) => {
   if (localStorage.getItem("carrito")) {
@@ -23,11 +25,11 @@ export const eliminarProductoCarrito = (productoId) => {
 
     swal({
       icon: "warning",
-      title:"¿Esta seguro que quiere eliminar este producto?",
-      buttons:true,
+      title: "¿Esta seguro que quiere eliminar este producto?",
+      buttons: true,
       dangerMode: true
-    }).then((result)=>{
-      if(result){
+    }).then((result) => {
+      if (result) {
         botonEliminar.parentElement.remove();
         carritoDeCompras = carritoDeCompras.filter(el => el.id != productoId);
         actualizarCarrito(carritoDeCompras);
@@ -50,9 +52,9 @@ const renderProductosCarrito = (productoId) => {
   let producto = productos.find(producto => producto.id == productoId);
   carritoDeCompras.push(producto);
   producto.cantidad = 1;
-  let div = document.createElement("div");
-  div.classList.add("productoEnCarrito");
-  div.innerHTML =
+  let div1 = document.createElement("div");
+  div1.classList.add("productoEnCarrito");
+  div1.innerHTML =
     ` <div class="contenedor__img-mini-carrito">
         <img class="img-mini-carrito" src=${producto.img}>
       </div>
@@ -63,9 +65,47 @@ const renderProductosCarrito = (productoId) => {
       <p class="producto__cantidad" id="cantidad${producto.id}"> Cantidad: ${producto.cantidad}</p>
       <button id="eliminar${producto.id}" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
     `;
-  contenedorCarrito.appendChild(div);
+  contenedorCarrito.appendChild(div1);
   actualizarCarrito(carritoDeCompras);
 }
 
+export const vaciarCarrito = () => {
+  const btnVaciarCarrito = document.getElementById('vaciar-carrito');
+  btnVaciarCarrito.addEventListener('click', () => {
+    swal.fire({
+      title: `¿Esta seguro de querer vaciar el carrito?`,
+      icon: 'warning',
+      showConfirmButton: true,
+      confirmButtonText: 'Sí',
+      showDenyButton: true,
+      denyButtonText: 'No',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        contenedorCarrito.innerHTML = '';
+        carritoDeCompras = [];
+        actualizarCarrito(carritoDeCompras);
+        swal.fire(
+          'Carrito vacio',
+          '',
+          'success'
+        )
+      }
+    });
+  });
+}
 
-
+export const pagar = () => {
+  const botonPagar = document.getElementById("boton-pagar");
+  botonPagar.addEventListener('click', async () => {
+    const compraRealizada = await Swal.fire({
+      title: 'Compra exitosa! gracias por elegirnos',
+      allowEscapeKey: false,
+      allowOutsideClick: false,
+    });
+    if (compraRealizada) {
+      contenedorCarrito.innerHTML = '';
+      carritoDeCompras = [];
+      actualizarCarrito(carritoDeCompras);
+    }
+  })
+}

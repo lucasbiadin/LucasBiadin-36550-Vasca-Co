@@ -4,6 +4,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  width: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -93,7 +97,7 @@ header #cesta-carrito #contador-carrito {
 .contenedor-main {
   display: flex;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: max-content;
 }
 
@@ -173,7 +177,7 @@ header #cesta-carrito #contador-carrito {
 }
 
 .modal-active .modal-carrito {
-  height: 100vh;
+  height: 100%;
   width: 30rem;
   background-color: #fff;
   display: flex;
@@ -188,7 +192,8 @@ header #cesta-carrito #contador-carrito {
 
 .modal-active .modal-carrito .contenedor-tituloYbotonSalir .modal-carrito-titulo {
   color: #545454;
-  display: inline;
+  width: 90%;
+  text-align: center;
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   text-transform: uppercase;
@@ -197,6 +202,7 @@ header #cesta-carrito #contador-carrito {
 
 .modal-active .modal-carrito .contenedor-tituloYbotonSalir #btn-cerrar-carrito {
   color: #000;
+  width: 10%;
   background: none;
   border: none;
   font-size: 20px;
@@ -264,11 +270,41 @@ header #cesta-carrito #contador-carrito {
 .modal-active .modal-carrito .precioTotalProducto {
   width: 100%;
   height: 4rem;
+  padding: 0;
   background-color: #3f3d3d;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
   border: 1px solid #545454;
+  margin: 0;
+  font-size: large;
+}
+
+.modal-active .modal-carrito .modal-footer {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.modal-active .modal-carrito .modal-footer .botones__modal-footer {
+  background: none;
+  margin: 0;
+  width: 100%;
+  height: 3rem;
+  border: none;
+  background-color: #cdb77c;
+  font-size: medium;
+  text-transform: uppercase;
+}
+
+.modal-active .modal-carrito .modal-footer :hover {
+  background: linear-gradient(to bottom, #cdb77c, #f7e6b7);
+  transition: all 0.5s;
 }
 /*# sourceMappingURL=style.css.map */
