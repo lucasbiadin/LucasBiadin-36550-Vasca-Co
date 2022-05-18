@@ -23,11 +23,14 @@ export const eliminarProductoCarrito = (productoId) => {
   let botonEliminar = document.getElementById(`eliminar${productoId}`);
   botonEliminar.addEventListener("click", () => {
 
-    swal({
+    swal.fire({
       icon: "warning",
       title: "¿Esta seguro que quiere eliminar este producto?",
-      buttons: true,
-      dangerMode: true
+      showConfirmButton: true,
+      confirmButtonText: 'Sí',
+      showDenyButton: true,
+      denyButtonText: 'No',
+      // dangerMode: true
     }).then((result) => {
       if (result) {
         botonEliminar.parentElement.remove();
